@@ -9,18 +9,24 @@ class MaxBinaryHeap{
         this.bubbleUp();
     }
     bubbleUp(){
-        let index = this.values.length - 1;
-        const ele = this.values[index];
-        while(true){
+        let idx = this.values.length - 1;
+        const ele = this.values[idx];
+        while(idx > 0){
             let parentIdx = Math.floor((idx -1)/2);
             let parent = this.values[parentIdx];
-            if(ele > parent){
-                this.values[parentIdx] = ele;
-                this.values[idx] = parent;
-            }
+            if(ele <= parent) break;
+            this.values[parentIdx] = ele;
+            this.values[idx] = parent;
+            idx = parentIdx;
         }
     }
 }
 
 let heap = new MaxBinaryHeap();
-heap.insert(55);
+heap.insert(39);
+heap.insert(41);
+heap.insert(18);
+heap.insert(27);
+heap.insert(12);
+heap.insert(33);
+console.log(heap);
